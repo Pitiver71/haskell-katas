@@ -1,2 +1,3 @@
-# haskell-katas
-Katas in Haskell
+# Katas in Haskell
+- [FizzBuzz](http://codingdojo.org/fr/kata/FizzBuzz/)
+
