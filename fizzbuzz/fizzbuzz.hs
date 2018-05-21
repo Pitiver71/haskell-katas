@@ -1,3 +1,5 @@
+{-# LANGUAGE MultiWayIf #-}
+
 import System.Exit
 
 fizzbuzz :: [Int] -> IO()
@@ -17,3 +19,14 @@ fizzbuzz2 (x:xs) = putStrLn (showFizzBuzz x) >> fizzbuzz2 xs
                          | mod x 3 == 0                     = "Fizz"
                          | mod x 5 == 0                     = "Buzz"
                          | otherwise                        = show x
+
+fizzbuzz3 :: [Int] -> IO()
+fizzbuzz3 [] = return ()
+fizzbuzz3 (x:xs) = do
+    let v = if | (mod x 3 == 0) && (mod x 5 == 0) -> "FizzBuzz"
+               | mod x 3 == 0                     -> "Fizz"
+               | mod x 5 == 0                     -> "Buzz"
+               | otherwise                        -> show x
+    putStrLn v
+    fizzbuzz3 xs
+                      
